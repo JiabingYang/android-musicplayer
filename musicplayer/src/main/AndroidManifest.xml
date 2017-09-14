@@ -12,6 +12,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true">
 
+        <receiver android:name="android.support.v4.media.session.MediaButtonReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

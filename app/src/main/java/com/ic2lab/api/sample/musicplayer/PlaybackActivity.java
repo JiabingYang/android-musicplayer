@@ -136,7 +136,7 @@ public class PlaybackActivity extends AppCompatActivity implements View.OnClickL
                 helper.setText(R.id.tv_item_song_title, item.getTitle())
                         .setText(R.id.tv_item_song_artist, item.getArtist())
                         .setText(R.id.tv_item_song_duration, SongUtils.millisecondsToHms(item.getDuration()))
-                        .setGone(R.id.cb_item_song, true);
+                        .setGone(R.id.cb_item_song, false);
             }
         });
         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
@@ -336,19 +336,15 @@ public class PlaybackActivity extends AppCompatActivity implements View.OnClickL
         switch (view.getId()) {
             case R.id.iv_phone_previous:
                 MusicPlayer.skipToPrevious(this);
-                Toast.makeText(PlaybackActivity.this, "iv_phone_previous", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.iv_phone_play_pause:
                 MusicPlayer.pauseOrPlay(this);
-                Toast.makeText(PlaybackActivity.this, "iv_phone_play_pause", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.iv_phone_next:
                 MusicPlayer.skipToNext(this);
-                Toast.makeText(PlaybackActivity.this, "iv_phone_next", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.iv_phone_playback_mode:
                 MusicPlayer.swapPlaybackMode(this);
-                Toast.makeText(PlaybackActivity.this, "iv_phone_playback_mode", Toast.LENGTH_SHORT).show();
                 break;
             default:
         }

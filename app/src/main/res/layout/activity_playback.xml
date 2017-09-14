@@ -4,7 +4,7 @@
     android:id="@+id/view_album"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/play_bg"
+    android:background="@color/colorBackground"
     android:orientation="vertical"
     tools:context="com.ic2lab.api.sample.musicplayer.PlaybackActivity">
 
@@ -14,12 +14,8 @@
         android:layout_height="50dp"
         android:gravity="center"
         android:textColor="@android:color/white"
-        android:textSize="24sp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@drawable/play_bg" />
+        android:textSize="24sp"
+        android:background="@color/colorPrimaryDark"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_queue"
@@ -97,6 +93,7 @@
             android:layout_weight="1"
             android:contentDescription="@string/app_name"
             android:scaleType="center"
+            android:tint="@color/colorAccent"
             android:src="@drawable/play_play" />
 
         <ImageView

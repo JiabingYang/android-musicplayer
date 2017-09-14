@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:layout_marginBottom="1dp"
+    android:background="@color/colorItemBackground"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -20,7 +21,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="song name"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -36,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="artst"
-                android:textColor="@color/txt_color" />
+                android:textColor="@color/colorText" />
 
             <TextView
                 android:id="@+id/tv_item_song_duration"
@@ -46,7 +47,7 @@
                 android:layout_marginStart="8dp"
                 android:gravity="center_vertical"
                 android:text="duration"
-                android:textColor="@color/txt_color" />
+                android:textColor="@color/colorText" />
 
         </LinearLayout>
     </LinearLayout>

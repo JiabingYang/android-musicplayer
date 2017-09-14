@@ -102,5 +102,14 @@ public class SongListActivity extends AppCompatActivity {
                 PlaybackActivity.start(SongListActivity.this);
             }
         });
+        findViewById(R.id.tv_song_list_clear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (BooleanObject<Song> song : mSongs) {
+                    song.setBool(false);
+                }
+                mAdapter.notifyDataSetChanged();
+            }
+        });
     }
 }

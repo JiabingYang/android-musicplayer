@@ -4,12 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorBackground"
     tools:context="com.ic2lab.api.sample.musicplayer.SongListActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:gravity="center_vertical|end"
         android:paddingEnd="15dp"
         android:paddingLeft="15dp"
@@ -30,9 +31,20 @@
             android:id="@+id/tv_song_list_play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
             android:text="播放"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_song_list_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="清空"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
