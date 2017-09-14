@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MusicPlayer</string>
+    <string name="error_no_metadata">Unable to retrieve metadata.</string>
+</resources>
