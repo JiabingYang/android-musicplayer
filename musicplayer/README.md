@@ -36,7 +36,7 @@ MediaMetadaCompat.
 disconnect when onDestroy().
 3. MusicPlayer provides music playback control methods. You can call them after your Activity 
 has connected with the MusicService, or let MusicConnectionManager help you finding a connected 
-Activity or its controller for you by findXxx() methods of MusicConnectionManager.
+Activity or its controller by findXxx() methods of MusicConnectionManager.
 4. We use QueueItem to pass songs to android-musicplayer and MediaMetadataCompat to give you 
 infomation about the song playing. So you need to convert your own song type with QueueItem and 
 MediaMetadataCompat to use android-musicplayer.   
