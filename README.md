@@ -26,7 +26,7 @@ when app running.
 ```
 
 
-Use
+Usage
 --------
 
 1. Config via MusicConfig in the onCreate() of your Application. Make sure you have called 
