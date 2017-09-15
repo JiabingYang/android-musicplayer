@@ -40,7 +40,7 @@ Activity or its controller by findXxx() methods of MusicConnectionManager.
 4. We use QueueItem to pass songs to android-musicplayer and MediaMetadataCompat to give you 
 infomation about the song playing. So you need to convert your own song type with QueueItem and 
 MediaMetadataCompat to use android-musicplayer.   
-For convenience, you can converting by defining a class extending TypeQueueHelper.
+For convenience, you can convert them by defining a class extending TypeQueueHelper.
 
 
 Sample
