@@ -2,7 +2,7 @@ android-musicplayer
 ===================
 
 A music playback and control client for Android applications. This client is an encapsulation 
-of the [android-UniversalMusicPlayerwebsite][1].
+of the [android-UniversalMusicPlayer][1].
 
 Install
 --------
