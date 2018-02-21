@@ -18,7 +18,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -104,12 +103,12 @@ public class PlaybackActivity extends AppCompatActivity implements View.OnClickL
             mIndexWaitForPlay = getIntent().getIntExtra(INDEX, -1);
         }
 
-        mTitleTv = (TextView) findViewById(R.id.tv_title);
-        mPlayPauseIv = (ImageView) findViewById(R.id.iv_phone_play_pause);
-        mRandomIv = (ImageView) findViewById(R.id.iv_phone_playback_mode);
-        mPlayTimeTv = (TextView) findViewById(R.id.tv_start_time);
-        mDurationTv = (TextView) findViewById(R.id.tv_end_time);
-        mSb = (SeekBar) findViewById(R.id.sb_play);
+        mTitleTv = findViewById(R.id.tv_title);
+        mPlayPauseIv = findViewById(R.id.iv_phone_play_pause);
+        mRandomIv = findViewById(R.id.iv_phone_playback_mode);
+        mPlayTimeTv = findViewById(R.id.tv_start_time);
+        mDurationTv = findViewById(R.id.tv_end_time);
+        mSb = findViewById(R.id.sb_play);
         mSb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -128,7 +127,7 @@ public class PlaybackActivity extends AppCompatActivity implements View.OnClickL
             }
         });
 
-        RecyclerView queueRv = (RecyclerView) findViewById(R.id.rv_queue);
+        RecyclerView queueRv = findViewById(R.id.rv_queue);
         queueRv.setLayoutManager(new LinearLayoutManager(this));
         queueRv.setAdapter(mAdapter = new BaseQuickAdapter<Song, BaseViewHolder>(R.layout.item_song, mSongs) {
             @Override
@@ -139,12 +138,7 @@ public class PlaybackActivity extends AppCompatActivity implements View.OnClickL
                         .setGone(R.id.cb_item_song, false);
             }
         });
-        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                MusicPlayer.play(PlaybackActivity.this, SongQueueHelper.get().targetsToQueue(mSongs), position, null);
-            }
-        });
+        mAdapter.setOnItemClickListener((adapter, view, position) -> MusicPlayer.play(PlaybackActivity.this, SongQueueHelper.get().targetsToQueue(mSongs), position, null));
 
         findViewById(R.id.iv_phone_queue).setOnClickListener(this);
         findViewById(R.id.iv_phone_previous).setOnClickListener(this);
@@ -285,17 +279,7 @@ public class PlaybackActivity extends AppCompatActivity implements View.OnClickL
 
     private void scheduleSeekBarUpdate() {
         stopSeekBarUpdate();
-        mSeekBarUpdateFuture = mSeekBarUpdateScheduler.scheduleAtFixedRate(new Runnable() {
-            @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        PlaybackActivity.this.updateProgress();
-                    }
-                });
-            }
-        }, 100, 1000, TimeUnit.MILLISECONDS);
+        mSeekBarUpdateFuture = mSeekBarUpdateScheduler.scheduleAtFixedRate(() -> runOnUiThread(PlaybackActivity.this::updateProgress), 100, 1000, TimeUnit.MILLISECONDS);
     }
 
     private void stopSeekBarUpdate() {

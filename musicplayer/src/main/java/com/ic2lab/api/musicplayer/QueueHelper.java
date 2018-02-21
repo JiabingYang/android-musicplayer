@@ -5,7 +5,6 @@ import android.support.v4.media.session.MediaSessionCompat;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**

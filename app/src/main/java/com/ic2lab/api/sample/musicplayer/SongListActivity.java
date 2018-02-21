@@ -61,7 +61,7 @@ public class SongListActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        RecyclerView rv = (RecyclerView) findViewById(R.id.rv_song_list);
+        RecyclerView rv = findViewById(R.id.rv_song_list);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(mAdapter = new BaseQuickAdapter<BooleanObject<Song>, BaseViewHolder>(R.layout.item_song, mSongs) {
             @Override
@@ -70,46 +70,32 @@ public class SongListActivity extends AppCompatActivity {
                         .setText(R.id.tv_item_song_artist, item.getObject().getArtist())
                         .setText(R.id.tv_item_song_duration, SongUtils.millisecondsToHms(item.getObject().getDuration()))
                         .setChecked(R.id.cb_item_song, item.isBool())
-                        .setOnCheckedChangeListener(R.id.cb_item_song, new CompoundButton.OnCheckedChangeListener() {
-                            @Override
-                            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                                if (!compoundButton.isPressed())
-                                    return;
-                                item.setBool(compoundButton.isChecked());
-                                mAdapter.notifyDataSetChanged();
-                            }
+                        .setOnCheckedChangeListener(R.id.cb_item_song, (compoundButton, b) -> {
+                            if (!compoundButton.isPressed())
+                                return;
+                            item.setBool(compoundButton.isChecked());
+                            mAdapter.notifyDataSetChanged();
                         });
             }
         });
-        findViewById(R.id.tv_song_list_play).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                List<Song> selectedSongs = new ArrayList<>();
-                for (BooleanObject<Song> song : mSongs) {
-                    if (song.isBool())
-                        selectedSongs.add(song.getObject());
-                }
-                if (selectedSongs.isEmpty()) {
-                    Toast.makeText(SongListActivity.this, "未选择任何歌曲", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                PlaybackActivity.start(SongListActivity.this, selectedSongs, 0);
+        findViewById(R.id.tv_song_list_play).setOnClickListener(view -> {
+            List<Song> selectedSongs = new ArrayList<>();
+            for (BooleanObject<Song> song : mSongs) {
+                if (song.isBool())
+                    selectedSongs.add(song.getObject());
             }
+            if (selectedSongs.isEmpty()) {
+                Toast.makeText(SongListActivity.this, "未选择任何歌曲", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            PlaybackActivity.start(SongListActivity.this, selectedSongs, 0);
         });
-        findViewById(R.id.tv_song_list_status).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                PlaybackActivity.start(SongListActivity.this);
+        findViewById(R.id.tv_song_list_status).setOnClickListener(view -> PlaybackActivity.start(SongListActivity.this));
+        findViewById(R.id.tv_song_list_clear).setOnClickListener(view -> {
+            for (BooleanObject<Song> song : mSongs) {
+                song.setBool(false);
             }
-        });
-        findViewById(R.id.tv_song_list_clear).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                for (BooleanObject<Song> song : mSongs) {
-                    song.setBool(false);
-                }
-                mAdapter.notifyDataSetChanged();
-            }
+            mAdapter.notifyDataSetChanged();
         });
     }
 }

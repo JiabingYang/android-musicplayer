@@ -101,7 +101,7 @@ class MusicPlaybackManager implements MusicPlayback.Callback {
         if (error != null) {
             // Error states are really only supposed to be used for errors that cause playback to
             // stop unexpectedly and persist until the user takes action to fix it.
-            stateBuilder.setErrorMessage(error);
+            stateBuilder.setErrorMessage(0, error);
             state = PlaybackStateCompat.STATE_ERROR;
         }
         //noinspection ResourceType

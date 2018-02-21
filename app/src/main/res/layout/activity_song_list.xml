@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
             android:layout_marginRight="15dp"
-            android:text="状态"
+            android:text="@string/state"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
             android:layout_marginRight="15dp"
-            android:text="播放"
+            android:text="@string/play"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 
@@ -41,7 +41,7 @@
             android:id="@+id/tv_song_list_clear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="清空"
+            android:text="@string/clear"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 

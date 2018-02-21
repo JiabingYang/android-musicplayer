@@ -1,24 +1,23 @@
 android-musicplayer
 ===================
 
-A music playback and control client for Android applications. This client is an encapsulation 
+A music playback and control library for Android applications. This library is an encapsulation 
 of the [android-UniversalMusicPlayer][1].
 
 Install
 --------
 
-1. Add the [Retrolambda][2] dependency into build.gradle (Project: your_project).
-2. Copy the musicplayer-VERSION.aar into the libs directory of your app module.
-3. Add the following code into the build.gradle (Module: app):
+1. Copy the musicplayer-VERSION.aar into the libs directory of your app module.
+2. Add the following code into the build.gradle (Module: app):
 ```groovy
 compile fileTree(include: ['*.jar'], dir: 'libs')
 compile(name: 'musicplayer-VERSION', ext: 'aar')
 ```
-4. Add the following code into the AndroidManifest.xml of the module above:
+3. Add the following code into the AndroidManifest.xml of the module above:
 ```xml
 <service android:name="com.ic2lab.api.musicplayer.MusicService" />
 ```
-5. If your app needs access to music files on the local storage, remember to add 
+4. If your app needs access to music files on the local storage, remember to add 
 READ_EXTERNAL_STORAGE permission into AndroidManifest.xml, and check this permission 
 when app running.
 ```xml
@@ -49,12 +48,4 @@ Sample
 See the app module in the project root directory.
 
 
-Contributors
---------
-
-杨贾冰 ([@JiabingYang][3]).
-
-
 [1]: https://github.com/googlesamples/android-UniversalMusicPlayer
-[2]: https://github.com/evant/gradle-retrolambda
-[3]: https://github.com/JiabingYang

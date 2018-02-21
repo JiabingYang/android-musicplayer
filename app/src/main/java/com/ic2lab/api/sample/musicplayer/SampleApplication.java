@@ -13,12 +13,7 @@ public class SampleApplication extends Application {
     public void onCreate() {
         super.onCreate();
         MusicConfig.get()
-                .setMetadataTransformer(new Function<MediaSessionCompat.QueueItem, MediaMetadataCompat>() {
-                    @Override
-                    public MediaMetadataCompat apply(MediaSessionCompat.QueueItem queueItem) {
-                        return SongQueueHelper.get().queueItemToMetadata(queueItem);
-                    }
-                })
+                .setMetadataTransformer(queueItem -> SongQueueHelper.get().queueItemToMetadata(queueItem))
                 .setNotificationEnabled(false);
     }
 }

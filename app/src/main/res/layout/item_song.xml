@@ -46,7 +46,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:gravity="center_vertical"
-                android:text="duration"
+                android:text="@string/duration"
                 android:textColor="@color/colorText" />
 
         </LinearLayout>
@@ -56,6 +56,7 @@
         android:id="@+id/cb_item_song"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_marginEnd="27dp"
         android:layout_marginRight="27dp"
         android:scaleType="center" />
 

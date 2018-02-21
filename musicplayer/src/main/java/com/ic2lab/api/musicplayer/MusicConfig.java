@@ -42,7 +42,7 @@ public class MusicConfig {
         return mNotificationEnabled;
     }
 
-    public MusicConfig setNotificationEnabled(boolean enabled){
+    public MusicConfig setNotificationEnabled(boolean enabled) {
         this.mNotificationEnabled = enabled;
         return this;
     }

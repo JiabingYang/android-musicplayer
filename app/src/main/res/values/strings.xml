@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MusicPlayer</string>
+    <string name="duration">duration</string>
+    <string name="clear">清空</string>
+    <string name="play">播放</string>
+    <string name="state">状态</string>
+    <string name="time_00_00">00:00</string>
 </resources>

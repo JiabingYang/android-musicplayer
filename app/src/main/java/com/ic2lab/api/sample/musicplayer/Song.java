@@ -3,8 +3,6 @@ package com.ic2lab.api.sample.musicplayer;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
-
 public class Song implements Parcelable {
 
     private String id;
